@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Email Summarizer",
+    "version": "1.0",
+    "description": "Summarizes emails in one line using AI",
+    "permissions": ["activeTab", "scripting", "storage"],
+    "host_permissions": ["https://mail.google.com/*"],
+    "action": {
+        "default_title": "Summarize Email"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://mail.google.com/*"],
+            "js": ["content.js"],
+            "css": ["styles.css"],
+            "run_at": "document_idle"
+            
+        }
+    ]
+}
